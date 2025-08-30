@@ -1,0 +1,93 @@
+[project]
+name = "tend"
+version = "0.1.0"
+description = "A compassionate health awareness application that helps users understand their patterns through observation, not judgment"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Core Django
+    "Django>=5.0.8,<5.1",
+    "django-environ>=0.11.2",
+    
+    # Database
+    "psycopg2-binary>=2.9.9",
+    
+    # Cache and Sessions
+    "redis>=5.0.8",
+    "django-redis>=5.4.0",
+    
+    # HTMX Integration
+    "django-htmx>=1.19.0",
+    
+    # REST API (for future use)
+    "djangorestframework>=3.15.2",
+    
+    # CORS (for API if needed)
+    "django-cors-headers>=4.4.0",
+    
+    # Authentication & Security
+    "django-allauth>=0.57.0",
+    
+    # Forms and UI
+    "django-crispy-forms>=2.1",
+    "crispy-bootstrap5>=0.7",
+    
+    # Static files and media
+    "whitenoise>=6.6.0",
+    "Pillow>=10.4.0",
+    
+    # Health patterns and ML
+    "scikit-learn>=1.5.1",
+    "numpy>=1.26.4",
+    "pandas>=2.2.2",
+    
+    # Background tasks (for future use)
+    "celery>=5.3.6",
+    "django-celery-beat>=2.6.0",
+    
+    # PWA Support
+    "django-pwa>=1.1.0",
+    
+    # Time zone support
+    "pytz>=2024.1",
+    
+    # Deployment
+    "gunicorn>=22.0.0",
+    
+    # Monitoring and logging
+    "sentry-sdk[django]>=2.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Development tools
+    "django-debug-toolbar>=4.4.6",
+    "django-extensions>=3.2.3",
+    
+    # Testing
+    "pytest>=7.4.4",
+    "pytest-django>=4.8.0",
+    "pytest-cov>=4.1.0",
+    "factory-boy>=3.3.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tend.settings.development"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+testpaths = ["tend_project"]
+
+[tool.coverage.run]
+source = ["tend_project"]
+omit = [
+    "*/migrations/*",
+    "*/venv/*",
+    "*/tests/*",
+    "manage.py",
+    "*/settings/*",
+    "*/wsgi.py",
+    "*/asgi.py",
+]
