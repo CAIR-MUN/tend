@@ -1,0 +1,74 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Django: Debug Server",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tend_project/manage.py",
+            "args": [
+                "runserver",
+                "0.0.0.0:8000"
+            ],
+            "django": true,
+            "justMyCode": true,
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Django: Run Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tend_project/manage.py",
+            "args": [
+                "test"
+            ],
+            "django": true,
+            "justMyCode": true,
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Django: Shell",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tend_project/manage.py",
+            "args": [
+                "shell"
+            ],
+            "django": true,
+            "justMyCode": true,
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-v",
+                "${workspaceFolder}/tend_project"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+            }
+        }
+    ]
+}

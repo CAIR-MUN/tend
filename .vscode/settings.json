@@ -1,0 +1,69 @@
+{
+    // Python settings
+    "python.pythonPath": "./venv/bin/python",
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    
+    // Django settings
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.envFile": "${workspaceFolder}/.env",
+    
+    // Linting and formatting
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.ruffEnabled": true,
+    "python.formatting.provider": "none",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        }
+    },
+    
+    // Type checking
+    "python.analysis.typeCheckingMode": "basic",
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--config-file=pyproject.toml"
+    ],
+    
+    // Testing
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    
+    // HTML/Django templates
+    "[html]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[django-html]": {
+        "editor.formatOnSave": false
+    },
+    "files.associations": {
+        "*.html": "django-html"
+    },
+    
+    // Editor settings
+    "editor.rulers": [88],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    
+    // File exclusions for search
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/venv": true,
+        "**/.venv": true,
+        "**/migrations": true,
+        "**/staticfiles": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    }
+}

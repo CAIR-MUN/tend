@@ -1,0 +1,270 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Django: Run Server",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "runserver", "0.0.0.0:8000"],
+            "options": {
+                "cwd": "${workspaceFolder}/tend_project",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Django: Migrate",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "migrate"],
+            "options": {
+                "cwd": "${workspaceFolder}/tend_project",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Django: Make Migrations",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "makemigrations"],
+            "options": {
+                "cwd": "${workspaceFolder}/tend_project",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Django: Collect Static",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "collectstatic", "--noinput"],
+            "options": {
+                "cwd": "${workspaceFolder}/tend_project",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Django: Create Superuser",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "createsuperuser"],
+            "options": {
+                "cwd": "${workspaceFolder}/tend_project",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Django: Shell",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "shell"],
+            "options": {
+                "cwd": "${workspaceFolder}/tend_project",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Python: Run Tests",
+            "type": "shell",
+            "command": "pytest",
+            "args": ["-v"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Python: Run Tests with Coverage",
+            "type": "shell",
+            "command": "pytest",
+            "args": ["--cov=tend_project", "--cov-report=html", "-v"],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "tend.settings.development"
+                }
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Ruff: Lint",
+            "type": "shell",
+            "command": "ruff",
+            "args": ["check", "."],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Ruff: Format",
+            "type": "shell",
+            "command": "ruff",
+            "args": ["format", "."],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "MyPy: Type Check",
+            "type": "shell",
+            "command": "mypy",
+            "args": ["tend_project"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker: Build",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["build"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker: Up",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["up", "-d"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker: Down",
+            "type": "shell",
+            "command": "docker-compose",
+            "args": ["down"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
